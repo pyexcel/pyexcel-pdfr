@@ -4,5 +4,7 @@ nick_name: "pdf"
 version: "0.0.1"
 current_version: "0.0.1"
 release: "0.0.1"
-dependencies: []
+file_type: "pdf"
+dependencies:
+  - pdftables
 description: "Read tables in pdf files as tabular data"

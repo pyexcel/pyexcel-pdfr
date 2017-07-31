@@ -1,5 +1,5 @@
 ================================================================================
-pyexcel-pdfr - Let you focus on data, instead of file formats
+pyexcel-pdfr - Let you focus on data, instead of pdf format
 ================================================================================
 
 .. image:: https://raw.githubusercontent.com/pyexcel/pyexcel.github.io/master/images/patreon.png
@@ -17,30 +17,15 @@ pyexcel-pdfr - Let you focus on data, instead of file formats
 .. image:: https://readthedocs.org/projects/pyexcel-pdfr/badge/?version=latest
    :target: http://pyexcel-pdfr.readthedocs.org/en/latest/
 
-Support the project
-================================================================================
 
-If your company has embedded pyexcel and its components into a revenue generating
-product, please `support me on patreon <https://www.patreon.com/bePatron?u=5537627>`_ to
-maintain the project and develop it further.
+Known constraints
+==================
 
-If you are an individual, you are welcome to support me too on patreon and for however long
-you feel like to. As a patreon, you will receive
-`early access to pyexcel related contents <https://www.patreon.com/pyexcel/posts>`_.
-
-With your financial support, I will be able to invest
-a little bit more time in coding, documentation and writing interesting posts.
-
-
-
-Introduction
-================================================================================
-**pyexcel-pdfr** does Read tables in pdf files as tabular data.
-
-
+Fonts, colors and charts are not supported.
 
 Installation
 ================================================================================
+
 You can install it via pip:
 
 .. code-block:: bash
@@ -56,10 +41,197 @@ or clone it and install it:
     $ cd pyexcel-pdfr
     $ python setup.py install
 
-
-
-Development guide
+Support the project
 ================================================================================
+
+If your company has embedded pyexcel and its components into a revenue generating
+product, please `support me on patreon <https://www.patreon.com/bePatron?u=5537627>`_ to
+maintain the project and develop it further.
+
+If you are an individual, you are welcome to support me too on patreon and for however long
+you feel like to. As a patreon, you will receive
+`early access to pyexcel related contents <https://www.patreon.com/pyexcel/posts>`_.
+
+With your financial support, I will be able to invest
+a little bit more time in coding, documentation and writing interesting posts.
+
+
+Usage
+================================================================================
+
+As a standalone library
+--------------------------------------------------------------------------------
+
+.. testcode::
+   :hide:
+
+    >>> import os
+    >>> import sys
+    >>> if sys.version_info[0] < 3:
+    ...     from StringIO import StringIO
+    ... else:
+    ...     from io import BytesIO as StringIO
+    >>> PY2 = sys.version_info[0] == 2
+    >>> if PY2 and sys.version_info[1] < 7:
+    ...      from ordereddict import OrderedDict
+    ... else:
+    ...     from collections import OrderedDict
+
+
+Read from an pdf file
+********************************************************************************
+
+Here's the sample code:
+
+.. code-block:: python
+
+    >>> from pyexcel_pdf import get_data
+    >>> data = get_data("your_file.pdf")
+    >>> import json
+    >>> print(json.dumps(data))
+    {"Sheet 1": [[1, 2, 3], [4, 5, 6]], "Sheet 2": [["row 1", "row 2", "row 3"]]}
+
+
+
+
+Read from an pdf from memory
+********************************************************************************
+
+Continue from previous example:
+
+.. code-block:: python
+
+    >>> # This is just an illustration
+    >>> # In reality, you might deal with pdf file upload
+    >>> # where you will read from requests.FILES['YOUR_PDF_FILE']
+    >>> data = get_data(io)
+    >>> print(json.dumps(data))
+    {"Sheet 1": [[1, 2, 3], [4, 5, 6]], "Sheet 2": [[7, 8, 9], [10, 11, 12]]}
+
+
+Pagination feature
+********************************************************************************
+
+
+
+Let's assume the following file is a huge pdf file:
+
+.. code-block:: python
+
+   >>> huge_data = [
+   ...     [1, 21, 31],
+   ...     [2, 22, 32],
+   ...     [3, 23, 33],
+   ...     [4, 24, 34],
+   ...     [5, 25, 35],
+   ...     [6, 26, 36]
+   ... ]
+   >>> sheetx = {
+   ...     "huge": huge_data
+   ... }
+   >>> save_data("huge_file.pdf", sheetx)
+
+And let's pretend to read partial data:
+
+.. code-block:: python
+
+   >>> partial_data = get_data("huge_file.pdf", start_row=2, row_limit=3)
+   >>> print(json.dumps(partial_data))
+   {"huge": [[3, 23, 33], [4, 24, 34], [5, 25, 35]]}
+
+And you could as well do the same for columns:
+
+.. code-block:: python
+
+   >>> partial_data = get_data("huge_file.pdf", start_column=1, column_limit=2)
+   >>> print(json.dumps(partial_data))
+   {"huge": [[21, 31], [22, 32], [23, 33], [24, 34], [25, 35], [26, 36]]}
+
+Obvious, you could do both at the same time:
+
+.. code-block:: python
+
+   >>> partial_data = get_data("huge_file.pdf",
+   ...     start_row=2, row_limit=3,
+   ...     start_column=1, column_limit=2)
+   >>> print(json.dumps(partial_data))
+   {"huge": [[23, 33], [24, 34], [25, 35]]}
+
+.. testcode::
+   :hide:
+
+   >>> os.unlink("huge_file.pdf")
+
+
+As a pyexcel plugin
+--------------------------------------------------------------------------------
+
+No longer, explicit import is needed since pyexcel version 0.2.2. Instead,
+this library is auto-loaded. So if you want to read data in pdf format,
+installing it is enough.
+
+
+Reading from an pdf file
+********************************************************************************
+
+Here is the sample code:
+
+.. code-block:: python
+
+    >>> import pyexcel as pe
+    >>> sheet = pe.get_book(file_name="your_file.pdf")
+    >>> sheet
+    Sheet 1:
+    +---+---+---+
+    | 1 | 2 | 3 |
+    +---+---+---+
+    | 4 | 5 | 6 |
+    +---+---+---+
+    Sheet 2:
+    +-------+-------+-------+
+    | row 1 | row 2 | row 3 |
+    +-------+-------+-------+
+
+
+
+
+Reading from a IO instance
+********************************************************************************
+
+You got to wrap the binary content with stream to get pdf working:
+
+.. code-block:: python
+
+    >>> # This is just an illustration
+    >>> # In reality, you might deal with pdf file upload
+    >>> # where you will read from requests.FILES['YOUR_PDF_FILE']
+    >>> pdffile = "another_file.pdf"
+    >>> with open(pdffile, "rb") as f:
+    ...     content = f.read()
+    ...     r = pe.get_book(file_type="pdf", file_content=content)
+    ...     print(r)
+    ...
+    Sheet 1:
+    +---+---+---+
+    | 1 | 2 | 3 |
+    +---+---+---+
+    | 4 | 5 | 6 |
+    +---+---+---+
+    Sheet 2:
+    +-------+-------+-------+
+    | row 1 | row 2 | row 3 |
+    +-------+-------+-------+
+
+
+
+
+License
+================================================================================
+
+New BSD License
+
+Developer guide
+==================
 
 Development steps for code changes
 
@@ -132,8 +304,9 @@ Acceptance criteria
 #. Agree on NEW BSD License for your contribution
 
 
+.. testcode::
+   :hide:
 
-License
-================================================================================
-
-New BSD License
+   >>> import os
+   >>> os.unlink("your_file.pdf")
+   >>> os.unlink("another_file.pdf")
