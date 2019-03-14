@@ -1,0 +1,9 @@
+name: pyexcel-pdfr
+organisation: pyexcel
+releases:
+- changes:
+  - action: first release
+    details:
+    - read tabular data out from pdf format
+  date: 14.03.2019
+  version: 0.5.0-rc1

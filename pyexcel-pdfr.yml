@@ -1,9 +1,9 @@
 overrides: "pyexcel.yaml"
 name: "pyexcel-pdfr"
 nick_name: "pdf"
-version: "0.0.1"
-current_version: "0.0.1"
-release: "0.0.1"
+version: "0.5.0-rc1"
+current_version: "0.5.0-rc1"
+release: "0.5.0-rc1"
 file_type: "pdf"
 dependencies:
   - pdftables

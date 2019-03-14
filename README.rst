@@ -5,7 +5,10 @@ pyexcel-pdfr - Let you focus on data, instead of pdf format
 .. image:: https://raw.githubusercontent.com/pyexcel/pyexcel.github.io/master/images/patreon.png
    :target: https://www.patreon.com/pyexcel
 
-.. image:: https://api.travis-ci.org/pyexcel/pyexcel-pdfr.svg?branch=master
+.. image:: https://api.bountysource.com/badge/team?team_id=288537
+   :target: https://salt.bountysource.com/teams/chfw-pyexcel
+
+.. image:: https://travis-ci.org/pyexcel/pyexcel-pdfr.svg?branch=master
    :target: http://travis-ci.org/pyexcel/pyexcel-pdfr
 
 .. image:: https://codecov.io/gh/pyexcel/pyexcel-pdfr/branch/master/graph/badge.svg
@@ -26,7 +29,8 @@ Fonts, colors and charts are not supported.
 Installation
 ================================================================================
 
-You can install it via pip:
+
+You can install pyexcel-pdfr via pip:
 
 .. code-block:: bash
 
@@ -45,12 +49,15 @@ Support the project
 ================================================================================
 
 If your company has embedded pyexcel and its components into a revenue generating
-product, please `support me on patreon <https://www.patreon.com/bePatron?u=5537627>`_ to
-maintain the project and develop it further.
+product, please support me on `patreon <https://www.patreon.com/bePatron?u=5537627>`_
+or `bounty source <https://salt.bountysource.com/teams/chfw-pyexcel>`_ to maintain
+the project and develop it further.
 
-If you are an individual, you are welcome to support me too on patreon and for however long
-you feel like to. As a patreon, you will receive
+If you are an individual, you are welcome to support me too and for however long
+you feel like. As my backer, you will receive
 `early access to pyexcel related contents <https://www.patreon.com/pyexcel/posts>`_.
+
+And your issues will get prioritized if you would like to become my patreon as `pyexcel pro user`.
 
 With your financial support, I will be able to invest
 a little bit more time in coding, documentation and writing interesting posts.
@@ -299,6 +306,7 @@ Acceptance criteria
 #. Has all code lines tested
 #. Passes all Travis CI builds
 #. Has fair amount of documentation if your change is complex
+#. run 'make format' so as to confirm the pyexcel organisation's coding style
 #. Please update CHANGELOG.rst
 #. Please add yourself to CONTRIBUTORS.rst
 #. Agree on NEW BSD License for your contribution
