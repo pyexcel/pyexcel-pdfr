@@ -5,15 +5,18 @@
     :copyright: (c) 2015-2017 by Onni Software Ltd & its contributors
     :license: New BSD License
 """
-from ._version import __version__, __author__  # flake8: noqa
+# flake8: noqa
+from pyexcel_io.io import get_data as read_data
+from pyexcel_io.io import isstream
 from pyexcel_io.plugins import IOPluginInfoChain
-from pyexcel_io.io import get_data as read_data, isstream
 
-__FILE_TYPE__ = 'pdf'
+from ._version import __author__, __version__
+
+__FILE_TYPE__ = "pdf"
 IOPluginInfoChain(__name__).add_a_reader(
-    relative_plugin_class_path='pdfr.PdfFile',
+    relative_plugin_class_path="pdfr.PdfFile",
     file_types=[__FILE_TYPE__],
-    stream_type='binary'
+    stream_type="binary",
 )
 
 

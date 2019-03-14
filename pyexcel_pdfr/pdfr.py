@@ -6,18 +6,22 @@
     :copyright: (c) 2015-2017 by Onni Software Ltd & its contributors
     :license: New BSD License
 """
-from pdftables import get_tables
-from pyexcel_io.book import BookReader
-from pyexcel_io.sheet import SheetReader, NamedContent
-from pyexcel_io._compact import OrderedDict
 import pyexcel_io.service as service
+from pdftables import get_tables
+from pyexcel_io._compact import OrderedDict
+from pyexcel_io.book import BookReader
+from pyexcel_io.sheet import NamedContent, SheetReader
 
 
 class PdfTable(SheetReader):
-    def __init__(self, sheet, auto_detect_int=True,
-                 auto_detect_float=True,
-                 auto_detect_datetime=True,
-                 **keywords):
+    def __init__(
+        self,
+        sheet,
+        auto_detect_int=True,
+        auto_detect_float=True,
+        auto_detect_datetime=True,
+        **keywords
+    ):
         SheetReader.__init__(self, sheet, **keywords)
         self.__auto_detect_int = auto_detect_int
         self.__auto_detect_float = auto_detect_float
@@ -47,10 +51,10 @@ class PdfTable(SheetReader):
                 self.__column_span[index] -= 1
                 if self.__column_span[index] == 0:
                     del self.__column_span[index]
-                yield ''
+                yield ""
                 index += 1
 
-            if not hasattr(cell, 'topleft'):
+            if not hasattr(cell, "topleft"):
                 yield cell
                 index += 1
                 continue
@@ -63,15 +67,15 @@ class PdfTable(SheetReader):
                     for offset in range(row_span):
                         if offset > 0:
                             # for next cell, give full col span
-                            self.__column_span[index+offset] = col_span
+                            self.__column_span[index + offset] = col_span
                         else:
                             # for current cell, give -1 because it has been
                             # yielded
-                            self.__column_span[index+offset] = col_span - 1
+                            self.__column_span[index + offset] = col_span - 1
                 else:
                     # no col span found, so just repeat in the same row
-                    for _ in range(row_span-1):
-                        yield ''
+                    for _ in range(row_span - 1):
+                        yield ""
                         index += 1
             else:
                 if col_span > 1:
@@ -86,9 +90,8 @@ class PdfTable(SheetReader):
         if ret is None and self.__auto_detect_float:
             ret = service.detect_float_value(cell_text)
             shall_we_ignore_the_conversion = (
-                (ret in [float('inf'), float('-inf')]) and
-                self.__ignore_infinity
-            )
+                ret in [float("inf"), float("-inf")]
+            ) and self.__ignore_infinity
             if shall_we_ignore_the_conversion:
                 ret = None
         if ret is None and self.__auto_detect_datetime:
@@ -122,7 +125,7 @@ class PdfFile(BookReader):
         return {sheet.name: sheet.to_array()}
 
     def _load_from_file(self):
-        self._file_handle = open(self._file_name, 'rb')
+        self._file_handle = open(self._file_name, "rb")
         self._native_book = self._parse_pdf(self._file_handle)
 
     def _load_from_memory(self):
@@ -134,7 +137,8 @@ class PdfFile(BookReader):
                 table.table_number_on_page,
                 table.total_tables_on_page,
                 table.page_number,
-                table.total_pages)
+                table.total_pages,
+            )
             yield NamedContent(name, table)
 
     def close(self):
