@@ -18,7 +18,6 @@ targets:
   - "tests/requirements.txt": "tests/requirements.txt"
   - test.sh: test.script.jj2
   - test.bat: test.script.jj2
-  - .travis.yml: travis.yml.jj2
   - .gitignore: gitignore.jj2
   - "docs/source/conf.py": "docs/source/conf.py.jj2"
   - "pyexcel_pdfr/_version.py": version.py.jj2
