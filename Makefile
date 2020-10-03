@@ -1,18 +1,16 @@
 all: test
 
-test:
+test: lint
 	bash test.sh
 
-document:
-	bash document.sh
-
-spelling:
-	sphinx-build -b spelling docs/source/ docs/build/spelling
-
-format:
-	isort -y $(find pyexcel_pdfr -name "*.py"|xargs echo) $(find tests -name "*.py"|xargs echo)
-	black -l 79 pyexcel_pdfr
-	black -l 79 tests
+install_test:
+	pip install -r tests/requirements.txt
 
 lint:
 	bash lint.sh
+
+format:
+	bash format.sh
+
+git-diff-check:
+	git diff --exit-code

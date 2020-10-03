@@ -31,7 +31,7 @@ except (ValueError, UnicodeError, locale.Error):
     locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
 
 NAME = "pyexcel-pdfr"
-AUTHOR = "C.W."
+AUTHOR = "chfw"
 VERSION = "0.5.0-rc1"
 EMAIL = "info@pyexcel.org"
 LICENSE = "New BSD"
@@ -63,6 +63,7 @@ CLASSIFIERS = [
 
 INSTALL_REQUIRES = [
     "pdftables",
+    "pyexcel-io==0.5.20",
 ]
 SETUP_COMMANDS = {}
 
