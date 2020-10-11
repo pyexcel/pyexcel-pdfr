@@ -5,4 +5,9 @@
 
 {%block features %}
 **{{name}}** does {{description}}. Please note it works on python 3.6+ only.
+
+It reads only phyical files and does not read io streams, not a URL.
+{%endblock%}
+
+{%block documentation_link%}
 {%endblock%}

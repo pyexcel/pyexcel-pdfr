@@ -2,6 +2,12 @@ name: pyexcel-pdfr
 organisation: pyexcel
 releases:
 - changes:
+  - action: updated
+    details:
+    - read tabular data out from pdf format in python 3.6+ with camelot-py
+  date: 11.10.2020
+  version: 0.6.0
+- changes:
   - action: first release
     details:
     - read tabular data out from pdf format
