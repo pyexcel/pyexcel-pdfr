@@ -1,9 +1,9 @@
 import os
 
+from pyexcel_pdfr import get_data
+
 import pyexcel as p
 from nose.tools import eq_
-from io import BytesIO
-from pyexcel_pdfr import get_data
 
 
 def test_simple_pdf():

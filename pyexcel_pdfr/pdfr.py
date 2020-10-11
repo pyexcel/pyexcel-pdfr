@@ -7,7 +7,7 @@
     :license: New BSD License
 """
 import camelot
-from pyexcel_io.plugin_api import IReader, ISheet, NamedContent
+from pyexcel_io.plugin_api import ISheet, IReader, NamedContent
 
 
 class PdfTable(ISheet):
