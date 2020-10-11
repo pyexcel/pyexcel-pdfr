@@ -8,3 +8,4 @@ targets:
   - "tests/requirements.txt": "tests/custom_req.txt.jj2"
   - "docs/source/conf.py": "docs/source/conf.py.jj2"
   - "pyexcel_pdfr/_version.py": version.py.jj2
+  - .travis.yml: custom_travis.yml.jj2
