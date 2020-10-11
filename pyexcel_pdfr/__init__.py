@@ -8,13 +8,14 @@
 # flake8: noqa
 from pyexcel_io.io import get_data as read_data
 from pyexcel_io.io import isstream
-from pyexcel_io.plugins import IOPluginInfoChain
+from pyexcel_io.plugins import IOPluginInfoChainV2
 
 from ._version import __author__, __version__
 
 __FILE_TYPE__ = "pdf"
-IOPluginInfoChain(__name__).add_a_reader(
+IOPluginInfoChainV2(__name__).add_a_reader(
     relative_plugin_class_path="pdfr.PdfFile",
+    locations=["file"],
     file_types=[__FILE_TYPE__],
     stream_type="binary",
 )
