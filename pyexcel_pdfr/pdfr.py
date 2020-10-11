@@ -3,11 +3,10 @@
     ~~~~~~~~~~~~~~~~~~~
     html table reader using messytables
 
-    :copyright: (c) 2015-2017 by Onni Software Ltd & its contributors
+    :copyright: (c) 2015-2020 by Onni Software Ltd & its contributors
     :license: New BSD License
 """
 import camelot
-import pyexcel_io.service as service
 from pyexcel_io.plugin_api import IReader, ISheet, NamedContent
 
 
