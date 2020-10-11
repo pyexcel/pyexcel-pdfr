@@ -1,8 +1,11 @@
-sudo: false
+sudo: true
 dist: xenial
 language: python
 notifications:
   email: false
+addons:
+  apt:
+    update: true
 python:
   - 3.8
   - 3.7
@@ -41,6 +44,7 @@ jobs:
 stage: test
 
 before_install:
+  - @sudo apt install python-tk python3-tk ghostscript
   - if [[ -f min_requirements.txt && "$MINREQ" -eq 1 ]]; then
       mv min_requirements.txt requirements.txt ;
     fi

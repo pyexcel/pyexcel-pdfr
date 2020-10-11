@@ -10,4 +10,4 @@ dependencies:
   - pyexcel-io>=0.6.0
 test_dependencies:
   - pyexcel
-description: "Read tables in pdf files as tabular data"
+description: "Read tables in pdf files using camelot for pyexcel community"
