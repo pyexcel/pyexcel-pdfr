@@ -52,7 +52,8 @@ a little bit more time in coding, documentation and writing interesting posts.
 
 Introduction
 ================================================================================
-**pyexcel-pdfr** does Read tables in pdf files using camelot for pyexcel community. Please note it works on python 3.6+ only.
+**pyexcel-pdfr** does Read tables in pdf files using `camelot <https://github.com/atlanhq/camelot>`_
+for pyexcel community. Please note it works on python 3.6+ only.
 
 It reads only phyical files and does not read io streams, not a URL.
 
