@@ -10,4 +10,3 @@ pygments
 moban
 moban_jinja2_github
 pyexcel
-pyexcel-io>=0.6.0

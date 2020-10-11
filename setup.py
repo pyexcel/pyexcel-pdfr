@@ -62,7 +62,7 @@ CLASSIFIERS = [
 
 
 INSTALL_REQUIRES = [
-    "camelot",
+    "camelot-py[cv]",
     "pyexcel-io>=0.6.0",
 ]
 SETUP_COMMANDS = {}
