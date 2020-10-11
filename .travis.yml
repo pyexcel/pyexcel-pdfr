@@ -44,7 +44,7 @@ jobs:
 stage: test
 
 before_install:
-  - @sudo apt install python-tk python3-tk ghostscript
+  - sudo apt install python-tk python3-tk ghostscript
   - if [[ -f min_requirements.txt && "$MINREQ" -eq 1 ]]; then
       mv min_requirements.txt requirements.txt ;
     fi
