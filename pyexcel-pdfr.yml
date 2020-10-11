@@ -1,14 +1,13 @@
 overrides: "pyexcel.yaml"
 name: "pyexcel-pdfr"
 nick_name: "pdf"
-version: "0.5.0-rc1"
-current_version: "0.5.0-rc1"
-release: "0.5.0-rc1"
+version: "0.6.0"
+current_version: "0.6.0"
+release: "0.6.0"
 file_type: "pdf"
 dependencies:
-  - pdftables
-  - pyexcel-io==0.5.20
+  - camelot-py[cv]
+  - pyexcel-io>=0.6.0
 test_dependencies:
   - pyexcel
-  - pyexcel-io==0.5.20
-description: "Read tables in pdf files as tabular data"
+description: "Read tables in pdf files using camelot for pyexcel community"

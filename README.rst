@@ -25,8 +25,11 @@ pyexcel-pdfr - Let you focus on data, instead of file formats
 .. image:: https://img.shields.io/gitter/room/gitterHQ/gitter.svg
    :target: https://gitter.im/pyexcel/Lobby
 
-.. image:: https://readthedocs.org/projects/pyexcel-pdfr/badge/?version=latest
-   :target: http://pyexcel-pdfr.readthedocs.org/en/latest/
+.. image:: https://img.shields.io/static/v1?label=continuous%20templating&message=%E6%A8%A1%E7%89%88%E6%9B%B4%E6%96%B0&color=blue&style=flat-square
+    :target: https://moban.readthedocs.io/en/latest/#at-scale-continous-templating-for-open-source-projects
+
+.. image:: https://img.shields.io/static/v1?label=coding%20style&message=black&color=black&style=flat-square
+    :target: https://github.com/psf/black
 
 Support the project
 ================================================================================
@@ -49,7 +52,10 @@ a little bit more time in coding, documentation and writing interesting posts.
 
 Introduction
 ================================================================================
-**pyexcel-pdfr** does Read tables in pdf files as tabular data. Please note it works on python 2.7 only.
+**pyexcel-pdfr** does Read tables in pdf files using `camelot <https://github.com/atlanhq/camelot>`_
+for pyexcel community. Please note it works on python 3.6+ only.
+
+It reads only phyical files and does not read io streams, not a URL.
 
 
 

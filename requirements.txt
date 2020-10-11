@@ -1,2 +1,2 @@
-pdftables
-pyexcel-io==0.5.20
+camelot-py[cv]
+pyexcel-io>=0.6.0
