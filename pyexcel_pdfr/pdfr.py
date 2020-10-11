@@ -1,7 +1,7 @@
 """
     pyexcel_pdfr.pdfr
     ~~~~~~~~~~~~~~~~~~~
-    html table reader using messytables
+    pdf table using camelot
 
     :copyright: (c) 2015-2020 by Onni Software Ltd & its contributors
     :license: New BSD License
@@ -30,24 +30,6 @@ class PdfTable(ISheet):
     def column_iterator(self, row):
         for cell in row:
             yield cell
-
-
-#    def __convert_cell(self, cell_text):
-#        ret = None
-#        if self.__auto_detect_int:
-#            ret = service.detect_int_value(cell_text)
-#        if ret is None and self.__auto_detect_float:
-#            ret = service.detect_float_value(cell_text)
-#            shall_we_ignore_the_conversion = (
-#                ret in [float("inf"), float("-inf")]
-#            ) and self.__ignore_infinity
-#            if shall_we_ignore_the_conversion:
-#                ret = None
-#        if ret is None and self.__auto_detect_datetime:
-#            ret = service.detect_date_value(cell_text)
-#        if ret is None:
-#            ret = cell_text
-#        return ret
 
 
 class PdfFile(IReader):
