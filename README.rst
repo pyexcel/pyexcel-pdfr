@@ -54,7 +54,7 @@ a little bit more time in coding, documentation and writing interesting posts.
 
 Introduction
 ================================================================================
-**pyexcel-pdfr** does Read tables in pdf files as tabular data. Please note it works on python 2.7 only.
+**pyexcel-pdfr** does Read tables in pdf files using camelot for pyexcel community. Please note it works on python 2.7 only.
 
 
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 DESCRIPTION = (
-    'Read tables in pdf files as tabular data' +
+    'Read tables in pdf files using camelot for pyexcel community' +
     ''
 )
 # Configuration file for the Sphinx documentation builder.

@@ -36,7 +36,7 @@ VERSION = "0.6.0"
 EMAIL = "info@pyexcel.org"
 LICENSE = "New BSD"
 DESCRIPTION = (
-    "Read tables in pdf files as tabular data"
+    "Read tables in pdf files using camelot for pyexcel community"
 )
 URL = "https://github.com/pyexcel/pyexcel-pdfr"
 DOWNLOAD_URL = "%s/archive/0.6.0.tar.gz" % URL
