@@ -9,5 +9,7 @@ dependencies:
   - camelot-py[cv]
   - pyexcel-io>=0.6.0
 test_dependencies:
+  - pytest
   - pyexcel
+use_pytest: true
 description: "Read tables in pdf files using camelot for pyexcel community"

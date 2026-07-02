@@ -3,13 +3,12 @@ import os
 from pyexcel_pdfr import get_data
 
 import pyexcel as p
-from nose.tools import eq_
 
 
 def test_simple_pdf():
     book = p.get_book(file_name=get_fixtures("simple.pdf"))
-    eq_(book.number_of_sheets(), 1)
-    eq_(book[0].name, "pyexcel_sheet_0")
+    assert book.number_of_sheets() == 1
+    assert book[0].name == "pyexcel_sheet_0"
     expected = """pyexcel_sheet_0:
 +--------------------+--------------------+
 | 540.7203515625     | 508.32             |
@@ -80,7 +79,7 @@ def test_simple_pdf():
 +--------------------+--------------------+
 | 89.03999999999999  | 76.32              |
 +--------------------+--------------------+"""
-    eq_(str(book[0]), expected)
+    assert str(book[0]) == expected
 
 
 def test_complex_pdf():
@@ -94,7 +93,7 @@ def test_complex_pdf():
         [148.56, 132.96],
         [132.96, 117.24],
     ]
-    eq_(data["pyexcel_sheet_0"], expected)
+    assert data["pyexcel_sheet_0"] == expected
 
 
 def get_fixtures(file_name):

@@ -1,3 +1,3 @@
 #/bin/bash
 pip freeze
-nosetests --with-coverage --cover-package pyexcel_pdfr --cover-package tests tests --with-doctest --doctest-extension=.rst README.rst docs/source pyexcel_pdfr
+coverage run -m --source=pyexcel_pdfr pytest --doctest-modules && coverage report --show-missing
