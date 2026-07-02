@@ -194,7 +194,7 @@ if __name__ == "__main__":
         license=LICENSE,
         keywords=KEYWORDS,
         extras_require=EXTRAS_REQUIRE,
-        tests_require=["pytest"],
+        tests_require=["nose"],
         install_requires=INSTALL_REQUIRES,
         packages=PACKAGES,
         include_package_data=True,
