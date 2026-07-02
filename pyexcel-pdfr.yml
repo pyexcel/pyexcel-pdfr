@@ -6,10 +6,11 @@ current_version: "0.6.0"
 release: "0.6.0"
 file_type: "pdf"
 dependencies:
-  - camelot-py[cv]
+  - camelot-py
   - pyexcel-io>=0.6.0
 test_dependencies:
   - pytest
+  - camelot-py
   - pyexcel
 use_pytest: true
 description: "Read tables in pdf files using camelot for pyexcel community"

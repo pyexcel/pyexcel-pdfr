@@ -1,3 +1,5 @@
+pytest
+camelot-py
 codecov
 coverage
 flake8
